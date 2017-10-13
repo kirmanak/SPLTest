@@ -16,6 +16,9 @@ checker:
         .number:
             cmp rcx, 2
             jne .false
+            call get_symbol
+            test ah, ah
+            jnz .false
         .true:
             mov rax, 1
             ret
