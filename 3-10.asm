@@ -1,7 +1,7 @@
 section .data
-    str1: db "hello", 0
-    str2: db "world", 0
-    buff: times 10 db 0 
+    str1: db "ffff", 0
+    str2: db "aaaa", 0
+    buff: times 9 db 0 
 section .text
 global _start
 _start:
@@ -15,29 +15,28 @@ _start:
     mov rax, 60
     syscall
 
+    ; первый аргумент в rdi
+    ; второй в rsi
+    ; целевой буфер в rdx
     shake:
-        mov byte al, [rsi]
-        mov byte [rdx], al
-        mov rcx, 1
+        push r15        ; счётчик символов в буфере
+        xor rcx, rcx    ; счётчик символов в строках
+        xor r15, r15        
         .loop:
-            mov byte al, [rdi+rcx-1]
-            mov byte [rdx+rcx], al
+            mov byte al, [rsi+rcx]
+            mov byte [rdx+r15], al
+            inc r15
+            mov byte al, [rdi+rcx]
+            mov byte [rdx+r15], al
             inc rcx
-            cmp al, 0
-            jne .loop
-        mov rdi, 1
-        dec rcx
-        .loop2:
-            mov byte al, [rsi+rdi]
-            mov byte [rdx+rcx], al
-            inc rcx
-            inc rdi
-            cmp al, 0
-            jne .loop2
+            inc r15
+            test al, al
+            jnz .loop
+        pop r15
         ret
-        
 
     print_string:
+        xor rax, rax
         .loop:
             cmp byte [rdi+rax], 0
             je .end
