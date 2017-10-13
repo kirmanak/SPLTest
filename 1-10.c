@@ -33,8 +33,8 @@ void sort(char* const arr)
                 min = counters[j];
             }
         counters[letter-'a'] = INT_MAX;
-        for (int j = position, limit = min + position; limit > j; ++j)
-            arr[j] = letter;
         position += min;
+        for (int j = position-min; position > j; ++j)
+            arr[j] = letter;
     }
 }
