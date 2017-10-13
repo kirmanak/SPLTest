@@ -4,16 +4,17 @@ global shake
 ; второй в rsi
 ; целевой буфер в rdx
 shake:
-    xor rcx, rcx    ; счётчик символов в строках
+    xor rax, rax    ; счётчик символов в строках
     xor r8, r8      ; счётчик символов в буфере
+    xor rcx, rcx    ; текущий символ
     .loop:
-        mov byte al, [rsi+rcx]
-        mov byte [rdx+r8], al
+        mov byte cl, [rsi+rax]
+        mov byte [rdx+r8], cl
         inc r8
-        mov byte al, [rdi+rcx]
-        mov byte [rdx+r8], al
-        inc rcx
+        mov byte cl, [rdi+rax]
+        jrcxz .exit
+        mov byte [rdx+r8], cl
+        inc rax
         inc r8
-        test al, al
-        jnz .loop
-    ret
+        jmp .loop
+    .exit: ret
