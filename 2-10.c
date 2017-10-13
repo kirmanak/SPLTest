@@ -1,15 +1,4 @@
-#include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-
-int words_counter(char* string);
-
-int main(int argc, char* argv[])
-{
-    char* string = "one two three four five six";
-    printf("A string is %s\n", string); 
-    printf("The number of words with more than three letters is %d\n", words_counter(string));
-}
 
 int words_counter(char* string)
 {

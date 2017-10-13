@@ -1,14 +1,5 @@
-section .data
-string: db "one two three four five six", 0
 section .text
-global _start
-_start:
-    mov rdi, string
-    call count
-    mov rdi, rax
-    mov rax, 60
-    syscall
-
+global count
 count:
     xor rcx, rcx
     xor rsi, rsi

@@ -1,16 +1,5 @@
 #include <limits.h>
 #include <string.h>
-#include <stdio.h>
-
-void sort(char* const arr);
-
-int main(const int argc, const char* const argv[])
-{
-    char arr[] = "ddddcccbba";
-    printf("Arr is %s \n", arr);
-    sort(arr);
-    printf("Now arr is %s \n", arr);
-}
 
 void sort(char* const arr)
 {

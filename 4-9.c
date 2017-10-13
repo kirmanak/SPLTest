@@ -1,21 +1,5 @@
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
-
-char** string_splitter(const char* const string);
-
-int main(int argc, char* argv[])
-{
-    char* string = "      one      two       three       four    five    six      ";
-    printf("A string is \"%s\" \n", string); 
-    char** answer = string_splitter(string);
-    for (int i = 0; 6 > i; ++i)
-    {
-        printf("%d-th word is \"%s\" \n", i+1, answer[i]);
-        free(answer[i]);
-    }
-    free(answer);
-}
 
 char** string_splitter(const char* const string)
 {

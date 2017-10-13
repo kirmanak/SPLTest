@@ -1,20 +1,5 @@
 #include <limits.h>
 #include <string.h>
-#include <stdio.h>
-
-void sort(int* const arr, const int size);
-
-int main(const int argc, const char* const argv[])
-{
-    int arr[] = {4,4,4,4,3,3,3,2,2,1};
-    for (int i = 0; 10 > i; ++i)
-        printf("%d ", arr[i]);
-    printf("\n");
-    sort(arr, 10);
-    for (int i = 0; 10 > i; ++i)
-        printf("%d ", arr[i]);
-    printf("\n");
-}
 
 void sort(int* const arr, const int size)
 {
