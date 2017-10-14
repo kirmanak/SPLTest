@@ -6,8 +6,7 @@
 
 int words_counter(const char * const string)
 {
-    int counter = 0;
-    for (int i = 0, letters = 0;; i++)
+    for (int i = 0, counter = 0, letters = 0;; i++)
     {
         if (isspace(string[i]) || string[i] == 0) {
             if (letters > 3) counter++;
