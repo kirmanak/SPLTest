@@ -1,12 +1,14 @@
 section .text
-extern get_symbol
 global checker
 ; returns 1 in rax if true
 ; returns 0 in rax if false
+; Нарисуйте и закодируйте на ассемблере конечный автомат, который проверяет входную строчку и отвеча-
+; ет, содержит ли она ровно два слова, а за ними число. Слова состоят только из символов [a-z], разделены
+; только одинарными пробелами. Макрос get_symbol кладёт в ah следующий символ.
 checker:
     xor rcx, rcx
     .loop:
-        call get_symbol ; кладёт в ah следующий символ
+        get_symbol      ; макрос, кладёт в ah следующий символ
         cmp ah, 0x20    ; пробел?
         je .space
         cmp ah, 57      ; цифра?
@@ -16,7 +18,7 @@ checker:
         .number:
             cmp rcx, 2
             jne .false
-            call get_symbol
+            get_symbol
             test ah, ah
             jnz .false
         .true:

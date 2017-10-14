@@ -3,6 +3,8 @@ global replace
 ; rdi - symbol to replace
 ; rsi - symbol-replacer
 ; rdx - a pointer to the string
+; Напишите функцию на ассемблере, которая примет строку и два символа. Она должна произвести тек-
+; стовую замену первого символа на второй.
 replace:
     xor rcx, rcx
     xor rax, rax

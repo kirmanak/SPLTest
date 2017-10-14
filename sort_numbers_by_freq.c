@@ -3,7 +3,12 @@
 
 #define ALPHABET 10
 
-void sort(int* const arr, const int size)
+/*
+ * В массиве char’ов есть только цифры. Отсортируйте их на C подсчётом по возрастанию (подсчитав
+ * количество вхождений каждой цифры, а затем перезаписав массив). Оформить в виде функции.
+ */
+
+void sort_numbers_by_freq(int* const arr, const int size)
 {
     int counters[ALPHABET] = {}, position = 0;
     for (int i = 0; size > i; ++i)

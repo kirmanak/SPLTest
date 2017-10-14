@@ -1,6 +1,10 @@
 #include <stdlib.h>
 #include <string.h>
 
+/*
+ * С: разбейте строку на слова и верните указатель на массив слов, каждое из которых завершено
+ * нуль-терминатором. Строку нельзя менять.
+ */
 
 char** string_splitter(const char* const string)
 {

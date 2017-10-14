@@ -1,5 +1,8 @@
-#include <string.h>
 #include <ctype.h>
+
+/*
+ * Напишите функцию, которая подсчитает количество слов из более, чем трёх букв в строке. C.
+ */
 
 int words_counter(const char * const string)
 {

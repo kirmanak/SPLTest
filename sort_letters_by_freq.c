@@ -3,7 +3,13 @@
 
 #define ALPHABET 26
 
-void sort(char* const arr)
+/*
+ * В массиве char’ов есть только строчные буквы латиницы. Отсортируйте их подсчётом по возрас-
+ * танию (подсчитав количество вхождений каждой буквы, а затем перезаписав массив). C. Разумеется,
+ * оформить в виде функции.
+ */
+
+void sort_letters_by_freq(char* const arr)
 {
     const int size = strlen(arr);
     int counters[ALPHABET] = {}, position = 0;
