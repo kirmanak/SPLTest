@@ -6,13 +6,13 @@
 
 int words_counter(const char * const string)
 {
-    int counter = 0, letters = 0, i = 0;
-    for (;;)
+    int counter = 0;
+    for (int i = 0, letters = 0;; i++)
     {
         if (isspace(string[i]) || string[i] == 0) {
             if (letters > 3) counter++;
+            if (string[i] == 0) return counter;
             letters = 0;
         } else letters++;
-        if (string[i++] == 0) return counter;
     }
 }

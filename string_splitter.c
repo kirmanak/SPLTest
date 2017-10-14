@@ -9,22 +9,21 @@
 char** string_splitter(const char* const string)
 {
     char** answer = malloc(sizeof(char*));
-    int words = 0, letters = 0, offset = 0, i = 0;
-    for (;;)
+    for (int i = 0, words = 0, letters = 0, offset = 0;; i++)
     {
-        if (string[i] != ' ' && string[i] != 0) letters++;
+        if ((string[i] != ' ') && (string[i] != 0)) letters++;
         else offset++; // redunant space in the string
-        if ((string[i] == ' ' || string[i] == 0) && letters > 0) 
+        if (((string[i] == ' ') || (string[i] == 0)) && letters > 0) 
         {
-            char* word = calloc(letters+1, sizeof(char));
+            char* const word = calloc(letters+1, sizeof(char));
             strncpy(word, string+offset-1, letters);
             word[letters] = 0;
-            offset+=letters*sizeof(char);
             words++;
-            letters=0;
             answer = realloc(answer, words*sizeof(char*));
             answer[words-1] = word;
+            if (string[i] == 0) return answer;
+            offset+=letters*sizeof(char);
+            letters=0;
         }
-        if (string[i++] == 0) return answer;
     }
 }
