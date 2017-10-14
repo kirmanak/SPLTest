@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 char** string_splitter(const char* const string)
 {
     char** answer = malloc(sizeof(char*));
@@ -17,12 +18,8 @@ char** string_splitter(const char* const string)
             offset+=letters*sizeof(char);
             words++;
             letters=0;
-            char** tmp = answer;
-            answer = calloc(words, sizeof(char*));
-            int last = words-1;
-            for (int j = 0; last > j; ++j) answer[j] = tmp[j];
-            answer[last] = word;
-            free(tmp);
+            answer = realloc(answer, words*sizeof(char*));
+            answer[words-1] = word;
         }
         if (string[i++] == 0) break;
     }
