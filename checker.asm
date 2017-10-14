@@ -6,7 +6,7 @@ global checker
 ; ет, содержит ли она ровно два слова, а за ними число. Слова состоят только из символов [a-z], разделены
 ; только одинарными пробелами. Макрос get_symbol кладёт в ah следующий символ.
 checker:
-    xor rcx, rcx
+    xor rcx, rcx        ; счётчик слов
     .loop:
         get_symbol      ; макрос, кладёт в ah следующий символ
         cmp ah, 0x20    ; пробел?
@@ -19,7 +19,7 @@ checker:
             cmp rcx, 2
             jne .false
             get_symbol
-            test ah, ah
+            test ah, ah ; проверяем, закончилась строка или нет
             jnz .false
         .true:
             mov rax, 1

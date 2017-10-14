@@ -13,7 +13,6 @@ int words_counter(const char * const string)
             if (letters > 3) counter++;
             letters = 0;
         } else letters++;
-        if (string[i++] == 0) break;
+        if (string[i++] == 0) return counter;
     }
-    return counter;
 }

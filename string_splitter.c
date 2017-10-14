@@ -25,7 +25,6 @@ char** string_splitter(const char* const string)
             answer = realloc(answer, words*sizeof(char*));
             answer[words-1] = word;
         }
-        if (string[i++] == 0) break;
+        if (string[i++] == 0) return answer;
     }
-    return answer;
 }
