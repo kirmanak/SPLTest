@@ -1,20 +1,16 @@
 #include <string.h>
+#include <ctype.h>
 
-int words_counter(char* string)
+int words_counter(const char * const string)
 {
-    int counter = 0;
-    const int size = strlen(string);
-    int letters = 0;
-    for (int i = 0; size > i; ++i)
+    int counter = 0, letters = 0, i = 0;
+    for (;;)
     {
-        if (string[i] == ' ') {
-            if (letters > 3)
-                counter++;
-            letters=0;
+        if (isspace(string[i]) || string[i] == 0) {
+            if (letters > 3) counter++;
+            letters = 0;
         } else letters++;
-
+        if (string[i++] == 0) break;
     }
-    if (letters > 3)
-        counter++;
     return counter;
 }
