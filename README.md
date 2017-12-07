@@ -31,10 +31,6 @@ int f( int a, long b, float c) { return a + b + *((int*)(&c)); }
 [inserter.asm](https://github.com/kirmanak/SPLTest/blob/master/inserter.asm)
 
 -------
-(1 формулировка)
-Напишите функцию на ассемблере, которая принимает строку, считает её длину и возвращает 1, если длина - простое число, а иначе 0.
-
-(2 формулировка)
 Напишите функцию на ассемблере, которая примет строку, посчитает её длину и определит, является ли длина простым числом.
 
 [islenprime.asm](https://github.com/kirmanak/SPLTest/blob/master/islenprime.asm)
