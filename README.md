@@ -7,6 +7,15 @@
 [checker.asm](https://github.com/kirmanak/SPLTest/blob/master/checker.asm)
 
 -------
+Переведите на ассемблер следующую функцию и последовательность команд для её вызова с аргументами 42, 43, 1.0 
+
+```
+int f( int a, long b, float c) { return a + b + *((int*)(&c)); }
+```
+
+[compile.asm](https://github.com/kirmanak/SPLTest/blob/master/compile.asm)
+
+-------
 Напишите функцию на ассемблере, которая примет строку и подсчитает количество пропусков в ней, состоящих из пробелов или табуляции (вперемешку).
 
 [count.asm](https://github.com/kirmanak/SPLTest/blob/master/count.asm)
@@ -70,10 +79,3 @@
 
 [words_counter.c](https://github.com/kirmanak/SPLTest/blob/master/words_counter.c)
 
--------
-Переведите на ассемблер следующую функцию и последовательность команд для её вызова с аргументами 42, 43, 1.0 
-'''
-int f( int a, long b, float c) { return a + b + *((int*)(&c)); }
-'''
-
-[compile.asm](https://github.com/kirmanak/SPLTest/blob/master/compile.asm)
