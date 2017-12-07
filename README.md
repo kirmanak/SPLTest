@@ -49,6 +49,12 @@ int f( int a, long b, float c) { return a + b + *((int*)(&c)); }
 
 [non_neg_counter.asm](https://github.com/kirmanak/SPLTest/blob/master/non_neg_counter.asm)
 
+
+-------
+Реализуйте очередь на основе односвязного списка в C.
+
+[queue.c](https://github.com/kirmanak/SPLTest/blob/master/queue.c)
+
 -------
 Напишите функцию на ассемблере, которая примет строку и два символа. Она должна произвести текстовую замену первого символа на второй.
 
