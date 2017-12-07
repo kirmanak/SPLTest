@@ -8,24 +8,26 @@ non_neg_counter:
   xor ecx, ecx ; non-negative numbers counter
   xor edx, edx ; previous symbol code
   .loop:
-    mov BYTE al, [rdi]
-    inc rdi
-    test al, al
-    jz .exit
-    cmp al, '0'
-    jb .loop
-    cmp al, '9'
-    ja .loop
-    ; here we have a number, let's check the previous symbol...
-    mov dl, [rdi - 2]
-    cmp dl, '-'
-    je .loop 
+    mov BYTE al, [rdi] ; Считываем очередной символ
+    inc rdi ; Перемещаем указатель на следующий
+    test al, al ; Проверяем на конец строки
+    jz .exit ; Если конец, завершаем цикл
+    cmp al, '0' ; Сравниваем код символа с кодом '0'
+    jb .loop ; Если он меньше (-> это не цифра), переходим к следующему символу
+    cmp al, '9' ; Сравниваем код символа с кодом '9'
+    ja .loop ; Если он больше (-> это не цифра), переходим к следующему символу
+    ; Если выполнение дошло до этого момента, значит текущий символ - цифра
+    mov dl, [rdi - 2] ; Сохраняем предыдущий символ
+    cmp dl, '-' ; Сравниваем символ с минусом
+    je .loop ; Если совпадает, -> пропускаем (число отрицательное)
+    ; Далее проверяем является ли символ (предыдущий), цифрой
+    ; если является, не увеличиваем счетчик (уже учли это число ранее)
     cmp dl, '0'
     jb .inc
     cmp dl, '9'
     jbe .loop
-    .inc:
-      inc rcx 
-      jmp .loop
+    .inc: 
+      inc rcx
+      jmp .loop ; Увеличиваем счетчик подсчета неотрицательных слов
   .exit:
     ret
