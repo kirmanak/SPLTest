@@ -69,3 +69,11 @@
 Напишите функцию, которая подсчитает количество слов из более, чем трёх букв в строке. C.
 
 [words_counter.c](https://github.com/kirmanak/SPLTest/blob/master/words_counter.c)
+
+-------
+Переведите на ассемблер следующую функцию и последовательность команд для её вызова с аргументами 42, 43, 1.0 
+'''
+int f( int a, long b, float c) { return a + b + *((int*)(&c)); }
+'''
+
+[compile.asm](https://github.com/kirmanak/SPLTest/blob/master/compile.asm)
