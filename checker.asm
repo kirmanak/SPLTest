@@ -9,30 +9,22 @@ checker:
     xor rcx, rcx        ; счётчик слов
     .loop:
         get_symbol      ; макрос, кладёт в ah следующий символ
-        cmp ah, ' '     ; пробел?
-        je .space
         cmp ah, '9'     ; цифра?
         jg .loop
-        test ah, ah
+        cmp ah, ' '     ; пробел?
+        je .space
+        test ah, ah     ; конец строки?
         jz .false       ; дошли до конца строки, не встретив цифру
-        cmp rcx, 2
-        jne .false
-        get_symbol
-        test ah, ah     ; проверяем, закончилась строка или нет
-        jz .true        
-        .number:        ; строка не закончилась, но это может оказаться большим числом
-            cmp ah, '9'
-            jg .false   ; не число =(
-            test ah, ah ; может, конец?
-            jz .true
-            get_symbol  ; не конец, проверим дальше
-            jmp .number
-        .true:
-            mov rax, 1
-            ret
-        .space:
-            inc rcx     ; наращиваем счётчик слов
-            jmp .loop
-        .false:
-            xor rax, rax 
-            ret
+        cmp rcx, 2      ; два ли слова было?
+        je .true        ; спускаемся дальше в false, если не 2
+    .false:
+        xor rax, rax
+        ret
+
+    .true:
+        mov rax, 1
+        ret
+
+    .space:
+        inc rcx
+        jmp .loop
