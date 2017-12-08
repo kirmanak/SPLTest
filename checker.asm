@@ -9,9 +9,9 @@ checker:
     xor rcx, rcx        ; счётчик слов
     .loop:
         get_symbol      ; макрос, кладёт в ah следующий символ
-        cmp ah, 0x20    ; пробел?
+        cmp ah, ' '    ; пробел?
         je .space
-        cmp ah, 57      ; цифра?
+        cmp ah, '9'      ; цифра?
         jg .loop
         test ah, ah
         jz .false       ; дошли до конца строки, не встретив цифру

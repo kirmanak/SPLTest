@@ -25,5 +25,9 @@ char** string_splitter(const char* const string)
             offset+=letters*sizeof(char);
             letters=0;
         }
+        if (string[i] == 0) {
+          free(answer);
+          return NULL;
+        }
     }
 }
