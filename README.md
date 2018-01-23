@@ -89,4 +89,4 @@ int f( int a, long b, float c) { return a + b + *((int*)(&c)); }
 -------
 Опишите двоичное дерево на С, хранящее int (каждый элемент имеет не более двух детей). Напишите map для него.
 
-[strings_merge.c](https://github.com/kirmanak/SPLTest/blob/master/map_for_binary_tree.c)
+[map_for_binary_tree.c](https://github.com/kirmanak/SPLTest/blob/master/map_for_binary_tree.c)
