@@ -8,9 +8,11 @@ struct node{
 };
 
 void foreach(struct node* root, int(*func)(int) ){
-	root->value = func(root->value);
-	foreach (root->first_child, func);
-	foreach (root->second_child, func);
+	if (root != NULL) {
+		root->value = func(root->value);
+		foreach (root->first_child, func);
+		foreach (root->second_child, func);
+	}
 }
 
 void copy_tree(struct node* root, struct node* new_root){
