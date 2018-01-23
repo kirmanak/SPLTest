@@ -81,3 +81,8 @@ int f( int a, long b, float c) { return a + b + *((int*)(&c)); }
 
 [words_counter.c](https://github.com/kirmanak/SPLTest/blob/master/words_counter.c)
 
+-------
+Напишите функцию на С, которая сольёт две строчки в одну, выделив для неё память в куче.
+
+[strings_merge.c](https://github.com/kirmanak/SPLTest/blob/master/strings_merge.c)
+
